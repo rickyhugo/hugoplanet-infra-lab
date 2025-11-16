@@ -1,2 +1,8 @@
 ---
-namespace: argo
+argo:
+  namespace: argo
+prometheus:
+  namespace: monitoring
+namespaces:
+  - argo
+  - monitoring
