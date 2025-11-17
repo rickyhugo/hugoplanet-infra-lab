@@ -1,5 +1,5 @@
 ---
-apiVersion: sops-operator.isindir.github.com/v1alpha1
+apiVersion: isindir.github.com/v1alpha3
 kind: SopsSecret
 metadata:
   name: tailscale-oauth
