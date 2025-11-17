@@ -4,6 +4,6 @@
 # before encrypting any secrets.
 creation_rules:
   - path_regex: charts/cluster-secrets/secrets/.*\.ya?ml
-    encrypted_regex: "^(secretTemplates|stringData|data|binaryData)$"
+    encrypted_regex: "^(stringData|data|binaryData)$"
     age:
       - age1vqqd3t7f5ga8fjue9w27alqw7utnm7wdaze627y4udl3ntsgt37sz8h4rz
