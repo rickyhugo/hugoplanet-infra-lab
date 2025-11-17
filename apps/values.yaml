@@ -14,8 +14,29 @@ applications:
     tool:
       helm:
         releaseName: argo-cd
+  - name: sops-secrets-operator
+    namespace: sops
+    annotations:
+      argocd.argoproj.io/sync-wave: "0"
+    tool:
+      helm:
+        releaseName: sops-secrets-operator
+  - name: cluster-secrets
+    namespace: sops
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"
+    tool:
+      helm:
+        releaseName: cluster-secrets
   - name: prometheus
     namespace: monitoring
     tool:
       helm:
         releaseName: prometheus
+  - name: tailscale-operator
+    namespace: tailscale
+    annotations:
+      argocd.argoproj.io/sync-wave: "2"
+    tool:
+      helm:
+        releaseName: tailscale-operator

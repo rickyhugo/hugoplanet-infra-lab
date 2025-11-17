@@ -1,0 +1,4 @@
+---
+# This chart renders any SopsSecret manifests that live under
+# charts/cluster-secrets/secrets/. There are currently no top-level values to
+# configure.

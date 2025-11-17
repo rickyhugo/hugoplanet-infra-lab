@@ -1,0 +1,7 @@
+---
+apiVersion: v2
+name: cluster-secrets
+description: SOPS-managed secrets definitions for the cluster
+version: 0.1.0
+type: application
+appVersion: "1.0"

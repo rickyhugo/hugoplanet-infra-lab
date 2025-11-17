@@ -38,6 +38,7 @@ terraform.rc
 
 # helm
 charts/**/charts
+age.agekey
 
 # misc
 .env
