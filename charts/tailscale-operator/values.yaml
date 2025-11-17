@@ -1,4 +1,4 @@
 ---
 tailscale-operator:
   oauth:
-    secretName: operator-oauth
+    secretName: tailscale-oauth
