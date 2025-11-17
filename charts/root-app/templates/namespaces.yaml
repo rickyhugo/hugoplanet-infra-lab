@@ -1,9 +1,0 @@
-{{- range $index, $ns := .Values.namespaces }}
-{{- if $index }}
----
-{{- end }}
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: {{ $ns }}
-{{ end }}

@@ -1,0 +1,21 @@
+---
+config:
+  spec:
+    destination:
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/rickyhugo/hugoplanet-infra-lab
+      targetRevision: main
+
+applications:
+  - name: argo-cd
+    namespace: argocd
+    prune: false
+    tool:
+      helm:
+        releaseName: argo-cd
+  - name: prometheus
+    namespace: monitoring
+    tool:
+      helm:
+        releaseName: prometheus
