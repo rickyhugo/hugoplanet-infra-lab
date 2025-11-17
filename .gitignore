@@ -38,9 +38,11 @@ terraform.rc
 
 # helm
 charts/**/charts
-age.agekey
 
 # misc
 .env
 .env*
 !.env.example
+
+# secrets
+scripts/init_secrets.sh

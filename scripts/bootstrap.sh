@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
+source scripts/init_secrets.sh
+
 helm install argo-cd charts/argo-cd/ \
   --namespace argocd \
   --create-namespace \
   --wait
-
-kubectl create namespace sops
-kubectl create secret generic sops-age-key \
-  --namespace sops \
-  --from-file=key.txt=age.agekey
-
-# kubectl create namespace tailscale
 
 kubectl config set-context --current --namespace=argocd
 argocd login --core
@@ -21,5 +16,3 @@ argocd app create apps \
   --revision main \
   --path apps
 argocd app sync apps
-
-# kubectl delete secret -n argocd -l owner=helm,name=argo-cd

@@ -1,6 +1,0 @@
-dependencies:
-- name: sops-secrets-operator
-  repository: https://isindir.github.io/sops-secrets-operator/
-  version: 0.22.0
-digest: sha256:8d601e212241860ef3ff502eb8d7aee69dd2c91a983848d5d87e389b12c5f2f8
-generated: "2025-11-17T11:54:49.922940888+01:00"
