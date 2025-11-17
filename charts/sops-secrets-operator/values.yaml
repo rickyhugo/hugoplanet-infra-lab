@@ -1,11 +1,7 @@
 ---
-# Default values for deploying the SOPS Secrets Operator.
 age:
-  # Name of the secret containing the Age private key.
   secretName: sops-age-key
-  # Key inside the secret that stores the Age private key.
   keyFile: key.txt
-  # Filesystem path where the Age key will be mounted inside the operator pod.
   mountPath: /etc/sops-age
 
 sops-secrets-operator:

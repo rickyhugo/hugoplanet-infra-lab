@@ -1,5 +1,0 @@
-{{- range $path, $_ := .Files.Glob "secrets/*.yaml" }}
-{{ printf "# Source: %s" $path }}
-{{ $.Files.Get $path | trimSuffix "\n" }}
----
-{{- end }}

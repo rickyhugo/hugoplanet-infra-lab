@@ -6,10 +6,6 @@ kind: Application
 metadata:
   name: {{ .name | quote }}
   namespace: argocd
-  {{- with .annotations }}
-  annotations:
-  {{ toYaml . | indent 4 }}
-  {{- end }}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:

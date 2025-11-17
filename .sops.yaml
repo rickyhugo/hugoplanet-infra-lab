@@ -1,9 +1,10 @@
 ---
-# Update the age recipient list with the public keys that should be able to decrypt
-# the files covered by these rules. The default placeholder must be replaced
-# before encrypting any secrets.
+stores:
+  yaml:
+    indent: 2
+
 creation_rules:
-  - path_regex: charts/cluster-secrets/secrets/.*\.ya?ml
-    encrypted_regex: "^(stringData|data|binaryData)$"
+  - path_regex: charts/tailscale-operator/values.sops.yaml$
+    encrypted_regex: "^(oauth)$"
     age:
       - age1vqqd3t7f5ga8fjue9w27alqw7utnm7wdaze627y4udl3ntsgt37sz8h4rz

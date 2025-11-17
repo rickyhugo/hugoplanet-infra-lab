@@ -21,13 +21,6 @@ applications:
     tool:
       helm:
         releaseName: sops-secrets-operator
-  - name: cluster-secrets
-    namespace: sops
-    annotations:
-      argocd.argoproj.io/sync-wave: "1"
-    tool:
-      helm:
-        releaseName: cluster-secrets
   - name: prometheus
     namespace: monitoring
     tool:
@@ -36,7 +29,9 @@ applications:
   - name: tailscale-operator
     namespace: tailscale
     annotations:
-      argocd.argoproj.io/sync-wave: "2"
+      argocd.argoproj.io/sync-wave: "1"
     tool:
       helm:
         releaseName: tailscale-operator
+        valueFiles:
+          - values.sops.yaml

@@ -10,7 +10,7 @@ kubectl create secret generic sops-age-key \
   --namespace sops \
   --from-file=key.txt=age.agekey
 
-kubectl create namespace tailscale
+# kubectl create namespace tailscale
 
 kubectl config set-context --current --namespace=argocd
 argocd login --core
