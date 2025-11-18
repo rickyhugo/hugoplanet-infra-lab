@@ -43,6 +43,3 @@ charts/**/charts
 .env
 .env*
 !.env.example
-
-# secrets
-scripts/init_secrets.sh
