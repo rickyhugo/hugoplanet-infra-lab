@@ -21,6 +21,15 @@ applications:
         releaseName: prometheus
   - name: tailscale-operator
     namespace: tailscale
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"
     tool:
       helm:
         releaseName: tailscale-operator
+  - name: tailscale-load-balancer
+    namespace: tailscale
+    annotations:
+      argocd.argoproj.io/sync-wave: "2"
+    tool:
+      helm:
+        releaseName: tailscale-load-balancer

@@ -1,0 +1,19 @@
+---
+controller:
+  replicaCount: 1
+  service:
+    type: LoadBalancer
+    loadBalancerClass: tailscale
+    annotations:
+      tailscale.com/hostname: "ingress-hugoplanet"
+  ingressClassResource:
+    default: false
+  watchIngressWithoutClass: false
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
+  config:
+    ssl-redirect: "true"
+    force-ssl-redirect: "true"
