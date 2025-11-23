@@ -1,0 +1,61 @@
+{{- $defaults := .Values.defaults | default dict }}
+{{- $defaultAnnotations := $defaults.annotations | default dict }}
+{{- $defaultIngressClass := $defaults.ingressClassName }}
+{{- range $ing := .Values.ingresses }}
+{{- $host := required "ingresses[].host is required" $ing.host }}
+{{- $namespace := required "ingresses[].namespace is required" $ing.namespace }}
+{{- $service := required "ingresses[].service is required" $ing.service }}
+{{- $serviceName := required "ingresses[].service.name is required" $service.name }}
+{{- $servicePort := required "ingresses[].service.port is required" $service.port }}
+{{- $name := default (printf "%s-ingress" $serviceName) $ing.name }}
+{{- $path := default "/" $ing.path }}
+{{- $pathType := default "Prefix" $ing.pathType }}
+{{- $ingressClassName := default $defaultIngressClass $ing.ingressClassName }}
+{{- $tlsSecretName := default $host $ing.tlsSecretName }}
+{{- $tlsHosts := default (list $host) $ing.tlsHosts }}
+{{- $annotations := dict }}
+{{- range $k, $v := $defaultAnnotations }}
+  {{- $_ := set $annotations $k $v }}
+{{- end }}
+{{- if $ing.annotations }}
+  {{- range $k, $v := $ing.annotations }}
+    {{- $_ := set $annotations $k $v }}
+  {{- end }}
+{{- end }}
+{{- if not (hasKey $annotations "external-dns.alpha.kubernetes.io/hostname") }}
+  {{- $_ := set $annotations "external-dns.alpha.kubernetes.io/hostname" $host }}
+{{- end }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $name | quote }}
+  namespace: {{ $namespace | quote }}
+  {{- if $annotations }}
+  annotations:
+{{ toYaml $annotations | indent 4 }}
+  {{- end }}
+spec:
+  {{- if $ingressClassName }}
+  ingressClassName: {{ $ingressClassName | quote }}
+  {{- end }}
+  rules:
+    - host: {{ $host | quote }}
+      http:
+        paths:
+          - path: {{ $path | quote }}
+            pathType: {{ $pathType | quote }}
+            backend:
+              service:
+                name: {{ $serviceName | quote }}
+                port:
+                  {{- if kindIs "string" $servicePort }}
+                  name: {{ $servicePort | quote }}
+                  {{- else }}
+                  number: {{ $servicePort }}
+                  {{- end }}
+  tls:
+    - secretName: {{ $tlsSecretName | quote }}
+      hosts:
+{{ toYaml $tlsHosts | indent 8 }}
+---
+{{- end }}

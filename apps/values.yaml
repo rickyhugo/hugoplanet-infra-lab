@@ -40,10 +40,17 @@ applications:
     tool:
       helm:
         releaseName: external-dns
-  - name: cert-manager-wrapper
-    namespace: cert-manager
-    annotations:
-      argocd.argoproj.io/sync-wave: "4"
-    tool:
-      helm:
-        releaseName: cert-manager
+   - name: cert-manager-wrapper
+     namespace: cert-manager
+     annotations:
+       argocd.argoproj.io/sync-wave: "4"
+     tool:
+       helm:
+         releaseName: cert-manager
+   - name: ingresses
+     namespace: monitoring
+     annotations:
+       argocd.argoproj.io/sync-wave: "5"
+     tool:
+       helm:
+         releaseName: ingresses

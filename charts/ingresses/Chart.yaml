@@ -1,0 +1,6 @@
+---
+apiVersion: v2
+name: ingresses
+description: Opinionated ingress definitions for cluster services
+type: application
+version: 0.1.0

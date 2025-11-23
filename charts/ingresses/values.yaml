@@ -1,0 +1,18 @@
+---
+defaults:
+  ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+
+ingresses:
+  - namespace: monitoring
+    host: grafana.hugoplanet.se
+    service:
+      name: prometheus-grafana
+      port: 80
+  - namespace: argocd
+    host: argocd.hugoplanet.se
+    service:
+      name: argocd-server
+      port: 80
