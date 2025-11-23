@@ -13,7 +13,6 @@ controller:
     enabled: true
     serviceMonitor:
       enabled: true
-      namespace: monitoring
   config:
     ssl-redirect: "true"
     force-ssl-redirect: "true"
