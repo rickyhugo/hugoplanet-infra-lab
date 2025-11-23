@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-name: tailscale-operator
+name: tailscale-operator-wrapper
 description: Tailscale operator
 type: application
 version: 0.1.0

@@ -19,7 +19,7 @@ applications:
     tool:
       helm:
         releaseName: prometheus
-  - name: tailscale-operator
+  - name: tailscale-operator-wrapper
     namespace: tailscale
     annotations:
       argocd.argoproj.io/sync-wave: "1"

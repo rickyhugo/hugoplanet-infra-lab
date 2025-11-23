@@ -1,0 +1,5 @@
+---
+# https://tailscale.com/kb/1437/kubernetes-operator-api-server-proxy#configuring-the-api-server-proxy-in-auth-mode
+tailscale-operator:
+  apiServerProxyConfig:
+    mode: "true"
