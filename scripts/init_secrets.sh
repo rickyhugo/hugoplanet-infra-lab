@@ -8,6 +8,7 @@ kubectl create secret generic operator-oauth \
   --from-literal=client_id="$TAILSCALE_CLIENT_ID" \
   --from-literal=client_secret="$TAILSCALE_CLIENT_SECRET"
 
+kubectl create namespace cert-manager
 kubectl -n cert-manager create secret generic cloudflare-api-token \
   --from-literal=api-token="$CLOUDFLARE_API_TOKEN"
 
