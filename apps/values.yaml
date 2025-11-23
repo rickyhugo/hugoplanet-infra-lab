@@ -33,3 +33,17 @@ applications:
     tool:
       helm:
         releaseName: tailscale-load-balancer
+  - name: external-dns-wrapper
+    namespace: external-dns
+    annotations:
+      argocd.argoproj.io/sync-wave: "3"
+    tool:
+      helm:
+        releaseName: external-dns
+  - name: cert-manager-wrapper
+    namespace: cert-manager
+    annotations:
+      argocd.argoproj.io/sync-wave: "4"
+    tool:
+      helm:
+        releaseName: cert-manager

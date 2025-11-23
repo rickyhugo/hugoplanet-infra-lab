@@ -1,0 +1,10 @@
+---
+apiVersion: v2
+name: external-dns-wrapper
+description: External DNS
+type: application
+version: 0.1.0
+dependencies:
+  - name: external-dns
+    version: 1.19.x
+    repository: https://kubernetes-sigs.github.io/external-dns

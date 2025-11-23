@@ -1,0 +1,16 @@
+---
+external-dns:
+  provider:
+    name: cloudflare
+  env:
+    - name: CF_API_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: cloudflare-api-token
+          key: api-token
+  serviceMonitor:
+    enabled: true
+  txtOwnerId: hugoplanet-k8s
+  domainFilters:
+    - hugoplanet.se
+  policy: sync
