@@ -14,5 +14,5 @@ ingresses:
   - namespace: argocd
     host: argocd.hugoplanet.se
     service:
-      name: argocd-server
+      name: argo-cd-argocd-server
       port: 80
