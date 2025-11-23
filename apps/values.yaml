@@ -16,6 +16,8 @@ applications:
         releaseName: argo-cd
   - name: prometheus
     namespace: monitoring
+    annotations:
+      argocd.argoproj.io/sync-options: ServerSideApply=true
     tool:
       helm:
         releaseName: prometheus
