@@ -48,7 +48,7 @@ applications:
       helm:
         releaseName: cert-manager
   - name: ingresses
-    namespace: monitoring
+    namespace: ingress
     annotations:
       argocd.argoproj.io/sync-wave: "5"
     tool:
