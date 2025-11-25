@@ -14,11 +14,6 @@ applications:
     tool:
       helm:
         releaseName: argo-cd
-  - name: kube-prometheus-stack
-    namespace: monitoring
-    annotations:
-      argocd.argoproj.io/sync-wave: "1"
-      argocd.argoproj.io/sync-options: ServerSideApply=true
   - name: tailscale-operator-wrapper
     namespace: tailscale
     annotations:
@@ -51,6 +46,3 @@ applications:
     namespace: ingress
     annotations:
       argocd.argoproj.io/sync-wave: "5"
-    tool:
-      helm:
-        releaseName: ingresses
