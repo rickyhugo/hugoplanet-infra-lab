@@ -11,38 +11,23 @@ applications:
   - name: argo-cd
     namespace: argocd
     prune: false
-    tool:
-      helm:
-        releaseName: argo-cd
-  - name: tailscale-operator-wrapper
+  - name: tailscale-operator
     namespace: tailscale
     annotations:
       argocd.argoproj.io/sync-wave: "1"
-    tool:
-      helm:
-        releaseName: tailscale-operator
   - name: tailscale-load-balancer
     namespace: tailscale
     annotations:
       argocd.argoproj.io/sync-wave: "2"
-    tool:
-      helm:
-        releaseName: tailscale-load-balancer
-  - name: external-dns-wrapper
+  - name: external-dns
     namespace: external-dns
     annotations:
       argocd.argoproj.io/sync-wave: "3"
-    tool:
-      helm:
-        releaseName: external-dns
-  - name: cert-manager-wrapper
+  - name: cert-manager
     namespace: cert-manager
     annotations:
       argocd.argoproj.io/sync-wave: "4"
-    tool:
-      helm:
-        releaseName: cert-manager
-  - name: ingresses
+  - name: ingress
     namespace: ingress
     annotations:
       argocd.argoproj.io/sync-wave: "5"

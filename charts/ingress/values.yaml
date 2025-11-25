@@ -5,12 +5,7 @@ defaults:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: "true"
 
-ingresses:
-  - namespace: monitoring
-    host: grafana.hugoplanet.se
-    service:
-      name: prometheus-grafana
-      port: 80
+ingress:
   - namespace: argocd
     host: argocd.hugoplanet.se
     service:
