@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
-name: external-dns
-description: External DNS
+name: dns-config
+description: DNS configuration
 type: application
 version: 0.1.0
 dependencies:

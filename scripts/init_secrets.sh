@@ -12,6 +12,6 @@ kubectl create namespace cert-manager
 kubectl -n cert-manager create secret generic cloudflare-api-token \
   --from-literal=api-token="$CLOUDFLARE_API_TOKEN"
 
-kubectl create namespace external-dns
-kubectl -n external-dns create secret generic cloudflare-api-token \
+kubectl create namespace dns-config
+kubectl -n dns-config create secret generic cloudflare-api-token \
   --from-literal=api-token="$CLOUDFLARE_API_TOKEN"

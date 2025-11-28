@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: argocd.hugoplanet.se
+    kubernetes.io/tls-acme: "true"
+  name: argocd-server-ingress
+  namespace: argocd
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: argocd.hugoplanet.se
+      http:
+        paths:
+          - backend:
+              service:
+                name: argo-cd-argocd-server
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+
+  tls:
+    - secretName: argocd.hugoplanet.se
+      hosts:
+        - argocd.hugoplanet.se
